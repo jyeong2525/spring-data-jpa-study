@@ -26,7 +26,7 @@ public class Member {
         this.team = team;
     }
 
-    public Member(String username) {
+    public Member(String username, int age) {
         this.username = username;
     }
 
