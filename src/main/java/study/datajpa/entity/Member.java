@@ -36,6 +36,10 @@ public class Member extends JpaBaseEntity{
         this.username = username;
     }
 
+    public Member(String username) {
+        this.username = username;
+    }
+
     public void changeTeam(Team team) {
         this.team = team;
         team.getMembers().add(this);
