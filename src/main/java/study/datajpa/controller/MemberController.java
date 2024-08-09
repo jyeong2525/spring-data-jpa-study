@@ -8,6 +8,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 import study.datajpa.entity.Member;
+import study.datajpa.repository.MemberDto;
 import study.datajpa.repository.MemberRepository;
 
 @RestController
@@ -25,5 +26,10 @@ public class MemberController {
     public Page<Member> list(Pageable pageable) {
         Page<Member> page = memberRepository.findAll(pageable);
         return page;
+    }
+
+    @GetMapping("/members")
+    public Page<MemberDto> listDto(Pageable pageable) {
+        return memberRepository.findAll(pageable).map(MemberDto::new);
     }
 }
